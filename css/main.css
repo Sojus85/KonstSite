@@ -345,6 +345,7 @@ a {
 .usz {
     margin-left: -60px;
     margin-right: -80px;
+    margin-bottom: 30px; /* Добавляем отступ снизу для контейнера с плитками */
 }
 
 .clearfix:after,
@@ -580,6 +581,7 @@ figure.effect-text-three:hover p {
         text-align: center;
         margin-right: -20px;
         margin-left: -20px;
+        margin-bottom: 20px; /* Добавляем отступ между плитками */
     }
 }
 
@@ -908,6 +910,11 @@ span.sim-dot {
     color: #000000;
     padding: 20px;
     text-align: left;
+    position: relative;
+    width: 100%;
+    background-color: #111;
+    padding: 20px 0;
+    margin-top: 50px; /* Добавляем отступ сверху */
 }
 
 .footer-logo {
@@ -950,6 +957,19 @@ span.sim-dot {
         text-align: left;
         margin-left: 0;
         margin-top: 0;
+    }
+
+    .ss {
+        padding-bottom: 80px; /* Увеличиваем отступ на мобильных устройствах */
+    }
+
+    .hover-text-one,
+    .hover-text-onez {
+        margin-bottom: 20px; /* Добавляем отступ между плитками */
+    }
+
+    .footer {
+        margin-top: 70px; /* Увеличиваем отступ на мобильных устройствах */
     }
 }
 
@@ -1271,6 +1291,9 @@ input[name=tab]:checked + .tab-content {
 
 .ss {
     overflow: hidden; /* Добавьте это, чтобы скрыть переполнение */
+    padding-bottom: 60px; /* Увеличиваем отступ снизу */
+    position: relative;
+    z-index: 1; /* Устанавливаем z-index для секции */
 }
 
 @media only screen and (max-width: 960px) {
@@ -1360,5 +1383,16 @@ input[name=tab]:checked + .tab-content {
 
     .ss {
         padding: 0 10px; /* Добавьте это, чтобы секция не выходила за пределы экрана */
+    }
+}
+
+/* Специальный медиа-запрос для Safari на iOS */
+@supports (-webkit-touch-callout: none) {
+    .ss {
+        padding-bottom: 100px; /* Дополнительный отступ для Safari */
+    }
+
+    .footer {
+        margin-top: 80px; /* Дополнительный отступ для Safari */
     }
 }
