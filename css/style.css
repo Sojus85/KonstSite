@@ -24,17 +24,60 @@ body {
 /* Навигационная панель */
 .navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Центрирование навигации */
     background-color: #ffffff; /* Белый цвет для навбара */
 }
 
+/* Стилизация ссылок навигации */
 .navbar a {
     color: #000000; /* Черный цвет для ссылок */
     padding: 14px 20px;
     text-decoration: none;
     text-align: center;
+    position: relative; /* Для добавления эффектов */
 }
 
+/* Стилизация кнопок навигации с красивой красной обводкой */
+.nav__link {
+    border: 2px solid #ff0000; /* Красная обводка */
+    border-radius: 8px; /* Сглаженные углы */
+    padding: 10px 20px; /* Внутренние отступы для кнопок */
+    margin: 0 5px; /* Отступы между кнопками */
+    transition: all 0.3s ease; /* Плавные переходы */
+    background-color: transparent; /* Прозрачный фон */
+    font-weight: bold; /* Жирный шрифт */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Небольшая тень */
+}
+
+.nav__link:hover {
+    background-color: #ff0000; /* Красный фон при наведении */
+    color: #ffffff; /* Белый цвет текста при наведении */
+    transform: translateY(-2px); /* Легкое поднятие кнопки */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Усиленная тень */
+}
+
+.nav__link.active {
+    background-color: #ff0000; /* Красный фон для активной ссылки */
+    color: #ffffff; /* Белый цвет текста для активной ссылки */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Усиленная тень */
+}
+
+/* Стилизация кнопки мобильного меню */
+.mobile-menu-toggle {
+    border: 2px solid #ff0000; /* Красная обводка кнопки меню */
+    border-radius: 5px; /* Сглаженные углы */
+    padding: 10px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.mobile-menu-toggle:hover {
+    background-color: #ff0000; /* Красный фон при наведении */
+    color: #ffffff; /* Белый цвет иконки при наведении */
+}
+
+/* Стили для основного контента */
 .main-content {
     padding: 20px;
 }
@@ -44,6 +87,16 @@ body {
     .navbar {
         flex-direction: column;
         align-items: center;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: 15px; /* Отступ между кнопками в колонке */
+    }
+
+    .nav__link {
+        margin: 5px 0; /* Дополнительный вертикальный отступ */
+        display: block; /* Блочное отображение для полной ширины */
     }
 
     .header,
@@ -61,6 +114,17 @@ body {
         display: none; /* Можно добавить бургер-меню */
     }
 
+    .nav__list {
+        gap: 20px; /* Увеличенный отступ для мобильных устройств */
+    }
+
+    .nav__link {
+        width: 100%; /* Полная ширина кнопки */
+        max-width: 300px; /* Максимальная ширина */
+        margin: 8px 0; /* Увеличенный вертикальный отступ */
+        box-sizing: border-box; /* Учитывать padding и border в общей ширине */
+    }
+
     .header,
     .footer {
         padding: 15px;
@@ -68,6 +132,13 @@ body {
 
     .main-content {
         padding: 15px;
+    }
+
+    /* Стили для навигационных ссылок при отображении мобильного меню */
+    .navbar.active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     /* Скрытие слайдера на мобильных устройствах */
@@ -131,6 +202,14 @@ body {
     .itc-slider {
         display: none;
     }
+}
+
+/* Активные состояния для разных страниц */
+.page-contacts .nav__link[href*="contacts"],
+.page-company .nav__link[href*="company"],
+.page-service .nav__link[href*="service"] {
+    background-color: #ff0000;
+    color: #ffffff;
 }
 
 /* Остальные стили остаются без изменений */ 
