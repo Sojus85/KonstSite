@@ -37,6 +37,17 @@
 html {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
 }
 
 *,
@@ -72,10 +83,12 @@ a {
 }
 
 .site-container {
-    overflow: visible; /* Меняем overflow на visible */
-    min-height: 100vh; /* Устанавливаем минимальную высоту */
+    overflow: hidden;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+    width: 100%;
 }
 
 .is-hidden {
@@ -318,6 +331,8 @@ a {
 .fs {
     min-height: 500px;
     margin-bottom: 55px;
+    position: relative;
+    z-index: 2;
 }
 
 .fs__title {
@@ -729,6 +744,9 @@ span.sim-dot {
 .fs__content {
     -ms-grid-column-span: 12;
     grid-column: 12 span;
+    position: relative;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .fs__title {
@@ -1398,14 +1416,23 @@ input[name=tab]:checked + .tab-content {
 
     .main {
         padding-bottom: 120px;
+        position: relative;
+        will-change: transform;
     }
 
     .ss {
+        position: relative;
+        z-index: 2;
         margin-bottom: 120px;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
     }
 
     .usz {
-        margin-bottom: 40px;
+        position: relative;
+        z-index: 3;
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
     }
 
     .hover-text-one,
@@ -1432,6 +1459,7 @@ input[name=tab]:checked + .tab-content {
 
     .main {
         padding-bottom: 150px; /* Увеличиваем отступ на iOS */
+        -webkit-overflow-scrolling: touch;
     }
 
     .ss {
@@ -1443,9 +1471,17 @@ input[name=tab]:checked + .tab-content {
         transform: translateZ(0); /* Включаем аппаратное ускорение */
         -webkit-transform: translateZ(0);
     }
+
+    html, body {
+        height: -webkit-fill-available;
+    }
 }
 
 .main {
     flex: 1 0 auto; /* Позволяем main занимать доступное пространство */
     padding-bottom: 100px; /* Отступ для подвала */
+    position: relative;
+    z-index: 1;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
