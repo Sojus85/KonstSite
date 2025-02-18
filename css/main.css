@@ -280,6 +280,7 @@ a {
         gap: 10px;
         flex-direction: column;
     }
+    
 }
 
 .fs {
@@ -294,6 +295,8 @@ a {
 
 .logoO {
     max-height: 200px;
+    width: auto; 
+    object-fit: contain; 
     margin-top: 0;
 }
 
