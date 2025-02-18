@@ -123,6 +123,7 @@ a {
     margin: 0 auto;
     padding: 0 var(--container-offset);
     max-width: var(--container-width);
+    overflow: hidden; /* Добавьте это, чтобы скрыть переполнение */
 }
 
 .js-focus-visible :focus:not(.focus-visible) {
@@ -207,11 +208,16 @@ a {
     border-color: var(--main-color);
 }
 
+.header {
+    padding: 20px; /* Убедитесь, что этот padding не мешает */
+    box-sizing: border-box; /* Добавьте это, чтобы padding не увеличивал размер контейнера */
+}
+
 .header__container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
 }
 
 .header-logo {
@@ -229,13 +235,20 @@ a {
 }
 
 .nav__list {
+    display: flex;
+    gap: 20px; /* Добавьте отступы между элементами навигации */
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
     margin-top: 10px;
     margin-left: 70px;
-    gap: 30px;
-    display: flex;
+}
+
+.nav__link {
+    padding: 10px 15px; /* Убедитесь, что у ссылок есть внутренние отступы */
+    text-decoration: none;
+    color: inherit;
+    display: inline-block; /* Убедитесь, что ссылки отображаются как inline-block */
 }
 
 .nav__link {
@@ -271,6 +284,9 @@ a {
     }
 
     .nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px; /* Уменьшите отступы между элементами навигации на мобильных устройствах */
         -webkit-box-align: center;
         -ms-flex-align: center;
         align-items: center;
@@ -280,7 +296,20 @@ a {
         gap: 10px;
         flex-direction: column;
     }
-    
+
+    .nav__link {
+        padding: 10px 0; /* Увеличьте внутренние отступы для удобства на мобильных устройствах */
+        width: 100%;
+    }
+
+    .header {
+        padding: 10px; /* Уменьшите padding на мобильных устройствах */
+    }
+
+    .header__container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
 
 .fs {
@@ -1203,6 +1232,7 @@ input[name=tab]:checked + .tab-content {
     .hover-text-onez {
         width: 100%;
         margin: 0;
+        margin-right: 100px;
     }
 
     .fs_desc {
@@ -1236,5 +1266,99 @@ input[name=tab]:checked + .tab-content {
     .tab-content {
         width: 100%;
         padding: 15px;
+    }
+}
+
+.ss {
+    overflow: hidden; /* Добавьте это, чтобы скрыть переполнение */
+}
+
+@media only screen and (max-width: 960px) {
+    .container {
+        padding: 0 10px; /* Убедитесь, что контейнеры имеют правильные отступы */
+    }
+
+    .nav {
+        margin-left: 0;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav__link {
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .header__container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .itc-slider {
+        display: none;
+    }
+
+    .slidetxt,
+    .slidetxtX,
+    .slidetxtY {
+        padding: 20px;
+        font-size: 50px;
+        height: auto;
+    }
+
+    .hover-text-one,
+    .hover-text-onez {
+        width: 100%;
+        margin: 0;
+        margin-right: 100px;
+    }
+
+    .fs_desc {
+        font-size: 30px;
+        margin-top: 50px;
+    }
+
+    .fs_desc1 {
+        font-size: 16px;
+    }
+
+    .comtxt {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .compdiv {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tab-one {
+        width: 100%;
+    }
+
+    .tabs-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .tab-content {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .ss {
+        padding: 0 10px; /* Добавьте это, чтобы секция не выходила за пределы экрана */
     }
 }
