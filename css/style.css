@@ -1,0 +1,136 @@
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Позволяет содержимому переноситься на новые строки */
+} 
+
+/* Базовые стили */
+body {
+    font-family: var(--font-family, sans-serif);
+    margin: 0;
+    padding: 0;
+}
+
+/* Повторение фоновых цветов для совместимости */
+.header,
+.footer {
+    background-color: #ffffff; /* Белый цвет */
+    color: #000000; /* Черный цвет для текста */
+    padding: 20px;
+    text-align: left;
+}
+
+/* Навигационная панель */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffffff; /* Белый цвет для навбара */
+}
+
+.navbar a {
+    color: #000000; /* Черный цвет для ссылок */
+    padding: 14px 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+/* Адаптивные стили */
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header,
+    .footer {
+        text-align: center;
+    }
+
+    .footer {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        display: none; /* Можно добавить бургер-меню */
+    }
+
+    .header,
+    .footer {
+        padding: 15px;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    /* Скрытие слайдера на мобильных устройствах */
+    .itc-slider {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    .header,
+    .footer {
+        padding: 10px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+}
+
+/* Дополнительные стили для логотипов */
+.header-logo {
+    width: 100%;
+    max-width: 300px; /* Максимальная ширина логотипа в шапке */
+    height: auto;
+    display: block;
+}
+
+.footer-logo {
+    width: 100%;
+    max-width: 150px; /* Максимальная ширина логотипа в подвале */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Центрирование логотипа в подвале */
+}
+
+/* Стиль для логотипа в середине страницы */
+.main-logo {
+    width: 60px; /* Уменьшить размер логотипа в 5 раз (предполагая, что исходно было около 300px) */
+    height: auto;
+    display: block;
+    margin: 20px auto; /* Центрирование и отступы сверху и снизу */
+}
+
+/* Стили для контактов в подвале */
+.footer .contacts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer .contacts li {
+    margin-bottom: 5px;
+}
+
+/* Скрытие слайдера на мобильных устройствах */
+@media (max-width: 768px) {
+    .itc-slider {
+        display: none;
+    }
+}
+
+/* Остальные стили остаются без изменений */ 
