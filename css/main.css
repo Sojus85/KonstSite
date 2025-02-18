@@ -72,7 +72,10 @@ a {
 }
 
 .site-container {
-    overflow: hidden;
+    overflow: visible; /* Меняем overflow на visible */
+    min-height: 100vh; /* Устанавливаем минимальную высоту */
+    display: flex;
+    flex-direction: column;
 }
 
 .is-hidden {
@@ -343,6 +346,8 @@ a {
 }
 
 .usz {
+    position: relative;
+    z-index: 2;
     margin-left: -60px;
     margin-right: -80px;
     margin-bottom: 30px; /* Добавляем отступ снизу для контейнера с плитками */
@@ -716,6 +721,9 @@ span.sim-dot {
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 100px; /* Добавляем отступ снизу */
 }
 
 .fs__content {
@@ -915,6 +923,8 @@ span.sim-dot {
     background-color: #111;
     padding: 20px 0;
     margin-top: 50px; /* Добавляем отступ сверху */
+    flex-shrink: 0; /* Запрещаем подвалу сжиматься */
+    z-index: 10;
 }
 
 .footer-logo {
@@ -1294,6 +1304,7 @@ input[name=tab]:checked + .tab-content {
     padding-bottom: 60px; /* Увеличиваем отступ снизу */
     position: relative;
     z-index: 1; /* Устанавливаем z-index для секции */
+    margin-bottom: 100px; /* Добавляем отступ снизу */
 }
 
 @media only screen and (max-width: 960px) {
@@ -1384,6 +1395,24 @@ input[name=tab]:checked + .tab-content {
     .ss {
         padding: 0 10px; /* Добавьте это, чтобы секция не выходила за пределы экрана */
     }
+
+    .main {
+        padding-bottom: 120px;
+    }
+
+    .ss {
+        margin-bottom: 120px;
+    }
+
+    .usz {
+        margin-bottom: 40px;
+    }
+
+    .hover-text-one,
+    .hover-text-onez {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
 }
 
 /* Специальный медиа-запрос для Safari на iOS */
@@ -1395,4 +1424,28 @@ input[name=tab]:checked + .tab-content {
     .footer {
         margin-top: 80px; /* Дополнительный отступ для Safari */
     }
+
+    .site-container {
+        position: relative;
+        min-height: -webkit-fill-available;
+    }
+
+    .main {
+        padding-bottom: 150px; /* Увеличиваем отступ на iOS */
+    }
+
+    .ss {
+        margin-bottom: 150px; /* Увеличиваем отступ на iOS */
+    }
+
+    .hover-text-one,
+    .hover-text-onez {
+        transform: translateZ(0); /* Включаем аппаратное ускорение */
+        -webkit-transform: translateZ(0);
+    }
+}
+
+.main {
+    flex: 1 0 auto; /* Позволяем main занимать доступное пространство */
+    padding-bottom: 100px; /* Отступ для подвала */
 }
